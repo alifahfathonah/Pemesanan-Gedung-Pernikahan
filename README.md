@@ -1,2 +1,2 @@
 # Pemesanan-Gedung-Pernikahan
-Sistem Informasi berbasis website ini bertujuan untuk mempermudah calon pengantin  mendapatkan  informasi  tentang  gedung  pernikahan  yang  tersedia  di  Wedding  Organizer
+Sistem Informasi berbasis website ini bertujuan untuk mempermudah calon pengantin mendapatkan  informasi  tentang  gedung  pernikahan  yang  tersedia  di  Wedding  Organizer  ini, targetnya adalah supaya calon pengantin dapat lebih mudah untuk memperhitungkan anggaran pemesanan  gedung  pernikahan.  Disini  kami  akan  mengambil  kasus  pada  Koloni  Semut Wedding Organizer sebagai acuan data yang akan digunakan didalam aplikasi berbasis website ini, dimana data tersebut meliputi daftar gedung, harga gedung dan juga paket catering  yang tersedia di Wedding Organizer. 
