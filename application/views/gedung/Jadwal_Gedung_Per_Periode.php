@@ -1,0 +1,285 @@
+<?php
+$session_id = $this->session->userdata('username');
+$this->load->helper('text');
+$user = $this->uri->segment(2);
+$start = date_create($start_date);
+$end = date_create($end_date);
+$no = 1;
+?>
+
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?><!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <title>Website Pemesanan Gedung Pernikahan</title>
+    
+    <!-- Loading Bootstrap -->
+    <link href="<?php echo base_url(); ?>assets/layout/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Template CSS -->
+    <link href="<?php echo base_url(); ?>assets/layout/css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/layout/css/style-magnific-popup.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin:500,600,700" rel="stylesheet">
+
+    <!-- Awsome Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/layout/css/pe-icon-7-stroke.css">
+
+	<!-- Optional - Adds useful class to manipulate icon font display -->
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/layout/css/helper.css">
+
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/layout/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/layout/css/owl.theme.default.min.css">
+	
+    <!-- Font Favicon -->
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/layout/images/fav-nikahan.png">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="<?php echo base_url(); ?>assets/layout/js/html5shiv.js"></script>
+      <script src="<?php echo base_url(); ?>assets/layout/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!--headerIncludes-->
+    
+</head>
+
+<body>
+
+    <!--begin header -->
+    <header class="header">
+
+        <!--begin nav -->
+        <nav class="navbar navbar-default navbar-fixed-bottom" style="padding-top:5px !important; padding-bottom:5px !important; background-color: #88AD45; border-color: #88AD45 !important;">
+            
+            <!--begin container -->
+            <div class="container">
+        
+                <!--begin navbar -->
+                <div class="navbar-header">
+
+                    <button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                        
+                    <!--logo -->
+                </div>
+                        
+                <div id="navbar-collapse-02" class="collapse navbar-collapse">
+
+                    <ul class="nav navbar-nav navbar-left">
+
+                        <li><a href="<?php echo site_url('home/jadwal') ?>" onclick="location.href = '<?php echo site_url('home/jadwal'); ?>';">Jadwal Gedung</a></li>
+
+                        <li>
+				<?php if($flag > 0): ?>
+                    <a href="<?php echo site_url('home/pemesanan') ?>">Pemesanan<span class="new badge"><?php echo $flag ?></span></a>
+                <?php endif;?>
+                <?php if($flag <= 0): ?>
+				<a href="<?php echo site_url('home/pemesanan') ?>">Pemesanan</a>
+				<?php endif; ?>
+				</li>
+
+                        <li><a href="<?php echo site_url('home/view-catering') ?>">Menu Catering</a></li>
+
+                        <li><a href="<?php echo site_url('pembayaran/frm_pembayaran') ?>">Konfirmasi Pembayaran</a></li>
+
+					     <li><a href="<?php echo site_url('home/pembayaran') ?>">Transaksi</a></li>
+                       
+                    </ul>
+                </div>
+                <!--end navbar -->
+                                    
+            </div>
+    		<!--end container -->
+            
+        </nav>
+    	<!--end nav -->
+
+
+        <!--begin nav -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            
+            <!--begin container -->
+            <div class="container">
+        
+                <!--begin navbar -->
+                <div class="navbar-header">
+
+                    <button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                        
+                    <!--logo -->
+                    <a href="<?php echo base_url(); ?>" class="navbar-brand" id="logo"><img src="<?php echo base_url(); ?>assets/layout/images/logo-nikahan.png"></a>
+
+                </div>
+                        
+                <div id="navbar-collapse-02" class="collapse navbar-collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                    <li><a href="<?php echo site_url('home/'.$session_id.'/') ?>#beranda" onclick="location.href = '<?php echo site_url('home/'.$session_id.'/') ?>#beranda'" class="waves-effect waves-teal">Beranda</a></li>
+
+                    <li><a href="<?php echo site_url('home/'.$session_id.'/') ?>#tentang" onclick="location.href = '<?php echo site_url('home/'.$session_id.'/') ?>#tentang'">Tentang Kami</a></li>
+
+                    <li><a href="<?php echo site_url('home/'.$session_id.'/') ?>#gedung" onclick="location.href = '<?php echo site_url('home/'.$session_id.'/') ?>#gedung'">List Gedung</a></li>
+
+                    <li><a href="<?php echo site_url('home/'.$session_id.'/') ?>#prasmanan" onclick="location.href = '<?php echo site_url('home/'.$session_id.'/') ?>#prasmanan'">Catering</a></li>
+
+                        <li><a href="#login" class="discover-btn" onclick="location.href = '<?php echo site_url('home/home/logout'); ?>';" id="login">Logout | <?php echo $session_id ?></a></li>
+                       
+                    </ul>
+                </div>
+                <!--end navbar -->
+                                    
+            </div>
+    		<!--end container -->
+            
+        </nav>
+    	<!--end nav -->
+        
+    </header>
+    <!--end header -->
+
+    <!--begin home section -->
+    <section class="home-section" id="atasan" style="padding-top: 45px;padding-bottom: 45px;">
+
+    </section>
+    <!--end home section -->
+
+
+    <!--begin blog -->
+    <section class="section-grey" id="gedung">
+        
+        <!--begin container-->
+        <div class="container">
+
+            <!--begin row-->
+            <div class="row">
+            
+                <!--begin col-md-12-->
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <p class="section-subtitle">Jadwal Penggunaan Gedung Periode</p>
+                    
+                    <div class="separator_wrapper">
+                        <i class="icon icon-star-two blue"></i>
+                    </div>
+                    <?php 
+                    $akhir_bulan = strtotime('last day of this month', time());
+                    $second_date = date('d M Y', $akhir_bulan);
+                    $first_date = date('d M Y', time());
+                    ?>
+                    <h4 class="section-title"><?php echo date_format($start, 'd M Y'); ?> - <?php echo date_format($end, 'd M Y'); ?></h4>
+                    
+                </div>
+                <!--end col-md-12-->
+            
+            </div>
+            <!--end row-->
+            
+            <!--begin row-->
+			
+            <div class="row" style="background: #ffffff; padding: 15px 15px; border-style: solid; border-width: 1px; border-color: #f9f9; border-radius: 10px;">
+                    <div class="col-lg-12">
+                        <div class="white-box">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Tanggal Acara</th>
+                                            <th>Nama Gedung</th>
+                                            <th>Deskripsi Acara</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php  foreach($jadwal as $row): ?>
+                                    <?php $tanggal = date_create($row['TANGGAL_FINAL_PEMESANAN']); ?>
+                                        <tr>
+                                            <td>
+                                                <?php echo $no++ ?>
+                                            </td>
+                                            <td>
+                                                <?php echo date_format($tanggal, 'd M Y'); ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row['NAMA_GEDUNG']; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row['DESKRIPSI_ACARA']; ?>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+    </section>
+    <!--end blog -->
+       
+    <!--begin footer -->
+    <div class="footer">
+            
+        <!--begin container -->
+        <div class="container">
+        
+            <!--begin row -->
+            <div class="row">
+            
+                <!--begin col-md-12 -->
+                <div class="col-md-12 text-center">
+                   
+                    <p>Copyright © 2018 Pemesanan Gedung Pernikahan. Designed by <a href="#" target="_blank">Tomodachi Tech</a></p>
+                    
+                </div>
+                <!--end col-md-6 -->
+                
+            </div>
+            <!--end row -->
+            
+        </div>
+        <!--end container -->
+                
+    </div>
+    <!--end footer -->
+
+
+<!-- Load JS here for greater good =============================-->
+<script src="<?php echo base_url(); ?>assets/layout/js/jquery-1.11.3.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/layout/js/bootstrap.js"></script>
+<script src="<?php echo base_url(); ?>assets/layout/js/owl.carousel.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/layout/js/jquery.scrollTo-min.js"></script>
+<script src="<?php echo base_url(); ?>assets/layout/js/jquery.magnific-popup.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/layout/js/jquery.nav.js"></script>
+<script src="<?php echo base_url(); ?>assets/layout/js/plugins.js"></script>
+<script src="<?php echo base_url(); ?>assets/layout/js/custom.js"></script>
+<script src="<?php echo base_url(); ?>assets/admin/js/waves.js"></script>
+
+    <!-- Date Picker Plugin JavaScript -->
+<script src="<?php echo base_url(); ?>assets/admin/components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <!-- Date range Plugin JavaScript -->
+<script src="<?php echo base_url(); ?>assets/admin/components/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/admin/components/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+</body>
+</html>
